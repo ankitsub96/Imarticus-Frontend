@@ -1,3 +1,11 @@
+# This project may be accessed at
+https://imarticus-react.herokuapp.com/
+
+# Instruction-
+Register or login and you are good to go.
+
+*We have two Free courses, containing modules with varying number of Videos. You may watch these videos in any order.
+
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
