@@ -8,56 +8,56 @@ import Login from './components/login/login'
 import Courses from './components/courses/courses'
 
 function App(props) {
-  const [authData, setAuthData] = useState({}) 
-  const [authChanged, setAuthChanged] = useState(0) 
+  const [authData, setAuthData] = useState({})
+  const [authChanged, setAuthChanged] = useState(0)
 
-  let getAuth = async ()=>{
+  let getAuth = async () => {
     console.log(props.authData)
-    console.log(props && props.authData!=={} && props.authData['token']!==undefined )
-    if (props && props.authData && props.authData['token']!==undefined ) {
+    console.log(props && props.authData !== {} && props.authData['token'] !== undefined)
+    if (props && props.authData && props.authData['token'] !== undefined) {
       setAuthData(props.authData)
       console.log({ authData })
     } else {
       let storedAuthData = await JSON.parse(await localStorage.getItem('authData'))
       console.log({ storedAuthData })
-      if (storedAuthData && storedAuthData!=={}) { 
-        await props.addToAuth(authData)  
+      if (storedAuthData && storedAuthData !== {}) {
+        await props.addToAuth(authData)
       } else {
         console.log('logged Out')
       }
     }
-  } 
+  }
   useEffect(() => {
-    getAuth() 
+    getAuth()
   }, [])
   useEffect(() => {
-    getAuth()  
+    getAuth()
   }, [authChanged])
 
 
   return (
-    <div className="App">
-      {(!props.authData || !props.authData['token']) && <Login authChanged={authChanged} setAuthChanged={setAuthChanged} />} 
+    <div className="App animate__animated animate__fadeInDown">
+      {(!props.authData || !props.authData['token']) && <Login authChanged={authChanged} setAuthChanged={setAuthChanged} />}
 
-      {(props.authData['token']) && <Courses  authChanged={authChanged} setAuthChanged={setAuthChanged} />} 
+      {(props.authData['token']) && <Courses authChanged={authChanged} setAuthChanged={setAuthChanged} />}
     </div>
   );
 }
-const mapStateToProps = (state) => { 
-  console.log({state}) 
+const mapStateToProps = (state) => {
+  console.log({ state })
   console.log(state['authReducer']['authData'])
-  return({
-      authData: state['authReducer']['authData']
+  return ({
+    authData: state['authReducer']['authData']
   })
-} 
+}
 const mapDispatchToProps = (dispatch) => {
 
   return {
     addToAuth: async authData => {
       console.log('authdata to dispatch:', authData)
-      if(authData!=={}){
+      if (authData !== {}) {
         await dispatch(addAuth(authData))
-        return true 
+        return true
       }
     }
   }

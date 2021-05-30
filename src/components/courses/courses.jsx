@@ -120,7 +120,7 @@ function Courses(props) {
                 <Nav.Link onClick={props.removeAuth}>Logout</Nav.Link>
             </Navbar>
 
-            <div style={{ display: 'flex', flexDirection: 'column', alignContent: 'center', gap: '5%', width: '90%', maxWidth: '700px', margin: '2% auto', height: '100%' }}>
+            <div className="animate__animated animate__zoomInDown" style={{ display: 'flex', flexDirection: 'column', alignContent: 'center', gap: '5%', width: '90%', maxWidth: '700px', margin: '2% auto', height: '100%' }}>
                 {!showModule && courses.map((course, ind) => {
                     return <div key={ind}>
                         <div key={ind} className="card" style={{ display: 'flex', flexDirection: 'row', alignContent: 'stretch', margin: '2% 0' }}>
@@ -141,10 +141,10 @@ function Courses(props) {
                     </div>
                 })
                 }
-                {showModule && modules && <h2 className="btn btn-danger mx-auto" onClick={() => { setModules({}); setShowModule(false);}}>Go Back</h2>}
+                {showModule && modules && <h2 className="btn btn-danger mx-auto " onClick={() => { setModules({}); setShowModule(false);}}>Go Back</h2>}
                 {showModule && modules && <h2>{modules.name}</h2>}
                 {showModule && modules['videos'] && modules['videos'].map((video, ind) => {
-                    return <div key={ind} className="card" style={{ display: 'flex', flexDirection: 'column', margin: '2% 0', padding:'2%'}}>
+                    return <div key={ind} className="card animate__animated animate__slideInUp" style={{ display: 'flex', flexDirection: 'column', margin: '2% 0', padding:'2%'}}>
                         <ReactPlayer url={video.url} />
                         <div style={{ display: 'flex', flexDirection: 'column', justifyContent: 'center', padding:'2%' }}>
                             <h3>{video.name}</h3>

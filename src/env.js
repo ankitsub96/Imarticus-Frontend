@@ -1,7 +1,7 @@
 let paths=[
     'http://localhost:3002/',
-    'adfgd'
+    'https://imarticus-backend.herokuapp.com/'
 ]
-let index=0
+let index=1
 
 export default paths[index]
