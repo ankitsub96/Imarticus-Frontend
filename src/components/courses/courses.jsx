@@ -112,7 +112,7 @@ function Courses(props) {
     }
 
     return (
-        <div className="courses">
+        <div className="courses" style={{display: 'flex', flexDirection: 'column', justifyContent: 'space-around', alignContent: 'space-around'}}>
             <Navbar bg="light" expand="lg">
                 <Navbar.Brand href="#home">Imarticus-Courses</Navbar.Brand>
 
@@ -120,10 +120,10 @@ function Courses(props) {
                 <Nav.Link onClick={props.removeAuth}>Logout</Nav.Link>
             </Navbar>
 
-            <div className="animate__animated animate__zoomInDown" style={{ display: 'flex', flexDirection: 'column', alignContent: 'center', gap: '5%', width: '90%', maxWidth: '700px', margin: '2% auto', height: '100%' }}>
+            <div className="animate__animated animate__zoomInDown" style={{ display: 'flex', flexDirection: 'column', alignContent: 'center', gap: '5%', width: '90%', maxWidth: '900px', margin: '2% auto', height: '100%' }}>
                 {!showModule && courses.map((course, ind) => {
-                    return <div key={ind}>
-                        <div key={ind} className="card" style={{ display: 'flex', flexDirection: 'row', alignContent: 'stretch', margin: '2% 0' }}>
+                    return <div key={ind} style={{ margin: '2%' }}>
+                        <div key={ind} className="card" style={{ display: 'flex', flexDirection: 'row', alignContent: 'stretch', margin: '2% auto' }}>
                             <img src="https://i.pinimg.com/originals/dd/8f/2f/dd8f2fff7569e32d8cedc9344c6aa772.png" alt="web" style={{ height: '12rem' }} />
                             <div style={{ display: 'flex', flexDirection: 'column', justifyContent: 'flex-start', flexGrow:'1', padding: '10%' }}>
                                 <h3 >{course.name}</h3>
