@@ -1,7 +1,7 @@
 import { useState } from 'react'
 import './login.scss';
 import axios from 'axios'
-import { connect, dispatch } from 'react-redux'
+import { connect } from 'react-redux'
 import { addAuth } from '../../actionCreators/auth'
 import path from '../../env'
 import { Form, Button } from 'react-bootstrap'
@@ -33,11 +33,12 @@ function Login(props) {
             if (response['data']['status']['code'] === 200) {
                 if(response['data']['data']){
                     await props.addAuth(response['data']['data'])
-                    await setAuthData( props.authData ) 
+                    props.setAuthChanged(props.authChanged+1)
+                    // await setAuthData( props.authData ) 
                 }else if(response['data']['data']['data']){  
                     await props.addAuth(response['data']['data']['data'])
-                    await setAuthData( props.authData ) 
                     props.setAuthChanged(props.authChanged+1)
+                    // await setAuthData( props.authData ) 
                 }
                 await console.log({authData})
             } else {
@@ -68,11 +69,12 @@ function Login(props) {
             if (response['data']['status']['code'] === 200) {
                 if(response['data']['data']){
                     await props.addAuth(response['data']['data'])
-                    await setAuthData( props.authData ) 
+                    props.setAuthChanged(props.authChanged+1)
+                    // await setAuthData( props.authData ) 
                 }else if(response['data']['data']['data']){  
                     await props.addAuth(response['data']['data']['data'])
-                    await setAuthData( props.authData ) 
                     props.setAuthChanged(props.authChanged+1)
+                    // await setAuthData( props.authData ) 
                 }
                 await console.log({authData})
             } else {

@@ -1,7 +1,7 @@
 import './App.scss';
 import { useState, useEffect } from 'react'
-import axios from 'axios'
-import { connect, dispatch } from 'react-redux'
+// import axios from 'axios'
+import { connect } from 'react-redux'
 import { addAuth } from './actionCreators/auth'
 import React from 'react'
 import Login from './components/login/login'

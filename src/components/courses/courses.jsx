@@ -1,7 +1,7 @@
 import { useState, useEffect } from 'react'
 import './courses.scss';
 import axios from 'axios'
-import { connect, dispatch } from 'react-redux'
+import { connect } from 'react-redux'
 import { addAuth, removeAuth } from '../../actionCreators/auth'
 import path from '../../env'
 import { Navbar, Nav, ListGroup, Accordion, Card, Image } from 'react-bootstrap'
@@ -150,7 +150,7 @@ function Courses(props) {
                 {showModule && modules && <h2>{modules.name}</h2>}
                 {showModule && modules['videos'] && modules['videos'].map((video, ind) => {
                     return <div key={ind} className="card animate__animated animate__slideInUp" style={{ display: 'flex', flexDirection: 'column', margin: '2% 0', padding:'2%'}}>
-                        <ReactPlayer url={video.url} controls='true' width="100%"/>
+                        <ReactPlayer url={video.url} controls={true} width="100%"/>
                         <div style={{ display: 'flex', flexDirection: 'column', justifyContent: 'center', padding:'2%' }}>
                             <h3>{video.name}</h3>
                             <p className="card-text">{video.description}</p>
