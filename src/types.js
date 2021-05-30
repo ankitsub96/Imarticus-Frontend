@@ -1,0 +1,3 @@
+const ADD_AUTH='ADD_AUTH'
+const DEL_AUTH='DEL_AUTH'
+export {ADD_AUTH, DEL_AUTH}

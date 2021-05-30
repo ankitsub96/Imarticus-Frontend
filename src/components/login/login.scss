@@ -1,0 +1,24 @@
+.login-main {
+  height: 100vh;
+  min-height: 800px;
+  background-image: url("../../assets/login1.jpg");
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  background-size: cover;
+  display: flex;
+}
+.card-group{
+  margin: auto;
+  width: 70%;
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  .register, .login{
+    flex: 1 0 350px;
+    padding: 2% 4%;
+    text-align: left;
+    h1{
+      margin-bottom: 2rem;
+    }
+  }
+}
