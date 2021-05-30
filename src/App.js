@@ -36,7 +36,7 @@ function App(props) {
 
 
   return (
-    <div className="App animate__animated animate__fadeInDown">
+    <div className="App animate__animated animate__fadeInDown animate__faster">
       {(!props.authData || !props.authData['token']) && <Login authChanged={authChanged} setAuthChanged={setAuthChanged} />}
 
       {(props.authData['token']) && <Courses authChanged={authChanged} setAuthChanged={setAuthChanged} />}

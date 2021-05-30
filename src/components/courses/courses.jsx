@@ -124,7 +124,7 @@ function Courses(props) {
                 {!showModule && courses.map((course, ind) => {
                     return <div key={ind} style={{ margin: '2%' }}>
                         <div key={ind} className="card" style={{ display: 'flex', flexDirection: 'row', alignContent: 'stretch', margin: '2% auto' }}>
-                            <img src="https://i.pinimg.com/originals/dd/8f/2f/dd8f2fff7569e32d8cedc9344c6aa772.png" alt="web" style={{ height: '12rem' }} />
+                            <img src="https://i.pinimg.com/originals/dd/8f/2f/dd8f2fff7569e32d8cedc9344c6aa772.png" alt="web" style={{ width: '45%' }} />
                             <div style={{ display: 'flex', flexDirection: 'column', justifyContent: 'flex-start', flexGrow:'1', padding: '10%' }}>
                                 <h3 >{course.name}</h3>
                             </div>
@@ -145,7 +145,7 @@ function Courses(props) {
                 {showModule && modules && <h2>{modules.name}</h2>}
                 {showModule && modules['videos'] && modules['videos'].map((video, ind) => {
                     return <div key={ind} className="card animate__animated animate__slideInUp" style={{ display: 'flex', flexDirection: 'column', margin: '2% 0', padding:'2%'}}>
-                        <ReactPlayer url={video.url} />
+                        <ReactPlayer url={video.url} controls='true' width="100%"/>
                         <div style={{ display: 'flex', flexDirection: 'column', justifyContent: 'center', padding:'2%' }}>
                             <h3>{video.name}</h3>
                             <p className="card-text">{video.description}</p>
