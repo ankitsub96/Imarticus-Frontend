@@ -4,7 +4,7 @@ import axios from 'axios'
 import { connect, dispatch } from 'react-redux'
 import { addAuth, removeAuth } from '../../actionCreators/auth'
 import path from '../../env'
-import { Navbar, Nav, ListGroup, Accordion, Card } from 'react-bootstrap'
+import { Navbar, Nav, ListGroup, Accordion, Card, Image } from 'react-bootstrap'
 import ReactPlayer from 'react-player'
 
 
@@ -126,7 +126,7 @@ function Courses(props) {
                 {!showModule && courses.map((course, ind) => {
                     return <div key={ind} style={{ margin: '2%' }}>
                         <Accordion.Toggle as={Card.Header} eventKey={String(ind)} key={ind} className="card" style={{ display: 'flex', flexDirection: 'row', alignContent: 'stretch', margin: '2% auto', cursor: 'pointer' }}>
-                            <img src="https://i.pinimg.com/originals/dd/8f/2f/dd8f2fff7569e32d8cedc9344c6aa772.png" alt="web" style={{ width: '45%' }} />
+                            <Image src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR-jsQ1W-sZdOzqNJp6Lf_8DNQbi84EnHtShg&usqp=CAU" alt="web" style={{ maxWidth: '45%' }} roundedCircle/>
                             <div style={{ display: 'flex', flexDirection: 'column', justifyContent: 'flex-start', flexGrow:'1', padding: '10%' }}>
                                 <h3 >{course.name}</h3>
                                 <p className="card-text">Click to view Modules</p>
@@ -146,7 +146,7 @@ function Courses(props) {
                     </div>
                 })
                 }
-                {showModule && modules && <h2 className="btn btn-danger mx-auto " onClick={() => { setModules({}); setShowModule(false);}}>Go Back</h2>}
+                {showModule && modules && <h2 className="btn btn-danger mx-auto " onClick={() => { setModules({}); setShowModule(false);}}>Back To Courses</h2>}
                 {showModule && modules && <h2>{modules.name}</h2>}
                 {showModule && modules['videos'] && modules['videos'].map((video, ind) => {
                     return <div key={ind} className="card animate__animated animate__slideInUp" style={{ display: 'flex', flexDirection: 'column', margin: '2% 0', padding:'2%'}}>
