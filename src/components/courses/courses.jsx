@@ -4,7 +4,7 @@ import axios from 'axios'
 import { connect, dispatch } from 'react-redux'
 import { addAuth, removeAuth } from '../../actionCreators/auth'
 import path from '../../env'
-import { Navbar, Nav, ListGroup } from 'react-bootstrap'
+import { Navbar, Nav, ListGroup, Accordion, Card } from 'react-bootstrap'
 import ReactPlayer from 'react-player'
 
 
@@ -118,26 +118,31 @@ function Courses(props) {
 
                 <Navbar.Text className="mx-auto"> Hi,  {authData.name} </Navbar.Text>
                 <Nav.Link onClick={props.removeAuth}>Logout</Nav.Link>
-            </Navbar>
+            </Navbar> 
 
             <div className="animate__animated animate__zoomInDown" style={{ display: 'flex', flexDirection: 'column', alignContent: 'center', gap: '5%', width: '90%', maxWidth: '900px', margin: '2% auto', height: '100%' }}>
+
+            <Accordion defaultActiveKey="0">
                 {!showModule && courses.map((course, ind) => {
                     return <div key={ind} style={{ margin: '2%' }}>
-                        <div key={ind} className="card" style={{ display: 'flex', flexDirection: 'row', alignContent: 'stretch', margin: '2% auto' }}>
+                        <Accordion.Toggle as={Card.Header} eventKey={String(ind)} key={ind} className="card" style={{ display: 'flex', flexDirection: 'row', alignContent: 'stretch', margin: '2% auto', cursor: 'pointer' }}>
                             <img src="https://i.pinimg.com/originals/dd/8f/2f/dd8f2fff7569e32d8cedc9344c6aa772.png" alt="web" style={{ width: '45%' }} />
                             <div style={{ display: 'flex', flexDirection: 'column', justifyContent: 'flex-start', flexGrow:'1', padding: '10%' }}>
                                 <h3 >{course.name}</h3>
+                                <p className="card-text">Click to view Modules</p>
                             </div>
-                        </div>
+                        </Accordion.Toggle>
+                        <Accordion.Collapse eventKey={String(ind)}>
                         <ListGroup>
                         {
                             course.modules.map((module, ind2) => {
                                 return <ListGroup.Item action variant="info"  key={ind2}  style={{cursor: 'pointer'}} onClick={() => { getModules(module); setShowModule(true);}}>
-                                    <h3 className="btn btn-outline-warn">Module {ind2}</h3>
+                                    <h3 className="btn btn-outline-warn">Module {ind2+1}</h3>
                                 </ListGroup.Item>
                             })
                         }
                         </ListGroup> 
+                        </Accordion.Collapse>
                     </div>
                 })
                 }
@@ -153,7 +158,9 @@ function Courses(props) {
                     </div>
                 })
                 }
-            </div>
+            </Accordion>
+
+            </div >
         </div>
     );
 }

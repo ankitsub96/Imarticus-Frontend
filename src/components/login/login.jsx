@@ -94,8 +94,8 @@ function Login(props) {
     }
 
     return (
-        <div className="login-main">
-            <div className="card-group animate__animated animate__lightSpeedInRight   ">
+        <div className="login-main animate__animated animate__fadeInRight">
+            <div className="card-group   ">
                 <div className="card register">
                     <h1>Register if you are a new User</h1>
                     <Form onSubmit={handleRegister}>
